@@ -6,6 +6,13 @@ await import("./src/env.js");
 
 /** @type {import("next").NextConfig} */
 const config = {
+    // We are ignoring TypeScript and ESLint errors during build to fasten the build process and avoid blocks. Instead, we will check types and ESLint in a github action.
+    typescript: {
+        ignoreBuildErrors: true,
+    },
+    eslint: {
+        ignoreDuringBuilds: true,
+    },
     images: {
         remotePatterns: [
             {
